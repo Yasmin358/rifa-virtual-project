@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 // import ethereum from './providers/ethereum';
 import klever from './providers/klever';
-const numerosDisp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-
+import { numerosDisp } from './utils/data';
 
 const App: React.FC = () => {
   const [error, setError] = useState('');
@@ -68,13 +67,10 @@ const App: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // const instituicao = toRef?.current?.value;
     const amount = amountRef?.current?.value;
     
     if (instituicao && amount) {
-      console.log({ instituicao, amount });
       const data = await klever.send(instituicao, parseInt(amount));
-      console.log(data);
       setTxHash(JSON.stringify(data));
     }
   };

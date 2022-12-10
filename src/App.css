@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
+  max-width: 1280px;
   padding: 2rem;
   text-align: center;
 }
@@ -9,15 +9,17 @@
   border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
-  width: 30px;
   height: 30px;
+  text-align: center;
+  width: 30px;
 }
 
 .tableRifa {
+  border: 1px solid white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 120px;
+  width: 160px;
 }
 
 .logo {
