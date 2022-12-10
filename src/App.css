@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.divNumbers {
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30px;
+  height: 30px;
+}
+
+.tableRifa {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 120px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
