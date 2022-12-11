@@ -74,11 +74,13 @@ const App: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const amount = amountRef?.current?.value;
-
+    if (!aposta) {
+      alert('Selecione um número para ser sorteado');
+    }
     if (instituicao && amount) {
       const data = await klever.send(instituicao, parseInt(amount));
       setTxHash(JSON.stringify(data));
-    }
+    } 
   };
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,15 +97,17 @@ const App: React.FC = () => {
   const onClickNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
     console.log(event.target);
     setChangeClass('select');
-    setAposta(index.toString());
+    setAposta((index+1).toString());
   }
+  
+  
 
   return (
     <div>
       <h1>Ajude uma causa e concorra um prêmio!</h1>
       <div className="flex space-around">
         <div className="container">
-          <h2>Conecte sua Wallet</h2>
+          <h2>Conecte sua Wallet para habilitar </h2>
           <div className="flex items-center space-around">
             <button
               style={connectedStyle(kleverConnected)}
@@ -130,36 +134,37 @@ const App: React.FC = () => {
           </p>
         </div>
         <hr />
+        {balance &&
         <div className="container3">
           <h2>Doar e Concorrer:</h2>
           <form onSubmit={handleSubmit}>
             <div className="instituicao">
               <h3>Para:</h3>
               <label >
-                <input name="instituicao" type="radio" value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx" onChange={onInputChange} ref={toRef} />
+                <input required name="instituicao" type="radio" value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx" onChange={onInputChange} ref={toRef} />
                 Gerando Falcões
               </label>
               <label>
-                <input name="instituicao" type="radio" value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem" onChange={onInputChange} ref={toRef} />
+                <input required name="instituicao" type="radio" value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem" onChange={onInputChange} ref={toRef} />
                 Instituição 2
               </label>
               <label>
-                <input name="instituicao" type="radio" value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn" onChange={onInputChange} ref={toRef} />
+                <input required name="instituicao" type="radio" value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn" onChange={onInputChange} ref={toRef} />
                 Instituição 3
               </label>
             </div>
             <div className="Premios">
               <h3>Prêmio:</h3>
               <label >
-                <input name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
                 Concorra a  100 R$ no Magazine Luiza
               </label>
               <label>
-                <input name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
                 Concorra a  50 R$ na sua conta da Klever
               </label>
               <label>
-                <input name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
                 Concorra a 12 meses grátis de Canal de Futebol
               </label>
             </div>
@@ -189,12 +194,13 @@ const App: React.FC = () => {
             <div>
               <br />
               <p className="text">
-                <code>{txHash}</code>
-                { txHash }
+              <h1>Transação concluída com sucesso</h1>
+              <p>Você está concorrendo a { premio } com o número { aposta }</p>
+              <h2>Boa sorte!</h2>
               </p>
             </div>
           )}
-        </div>
+        </div>}
       </div>
     </div>
   );
