@@ -94,14 +94,13 @@ const App: React.FC = () => {
 
   const onClickNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
     console.log(event.target);
-
     setChangeClass('select');
     setAposta(index.toString());
   }
 
   return (
     <div>
-      <h1>Ajude uma causa e concorra um premio</h1>
+      <h1>Ajude uma causa e concorra um prêmio!</h1>
       <div className="flex space-around">
         <div className="container">
           <h2>Conecte sua Wallet</h2>
@@ -120,57 +119,57 @@ const App: React.FC = () => {
           {error && <p onClick={() => setError('')}>{error}</p>}
         </div>
 
-        <div className="container">
-          <h2>Conta:</h2>
+        <div className="container2">
           <p className="text">
+            <h2>Conta:</h2>
             <b>{address}</b>
           </p>
           <p>
-            <b>Saldo:</b> KLV {balance}
+            <h2>Saldo:</h2> 
+            KLV {balance}
           </p>
         </div>
-
-        <div className="container">
-
-          <h2>Doar e concorrer:</h2>
-
+        <hr />
+        <div className="container3">
+          <h2>Doar e Concorrer:</h2>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Para:</label>
+            <div className="instituicao">
+              <h3>Para:</h3>
               <label >
                 <input name="instituicao" type="radio" value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx" onChange={onInputChange} ref={toRef} />
                 Gerando Falcões
-              </label><br></br>
+              </label>
               <label>
                 <input name="instituicao" type="radio" value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem" onChange={onInputChange} ref={toRef} />
                 Instituição 2
-              </label><br></br>
+              </label>
               <label>
                 <input name="instituicao" type="radio" value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn" onChange={onInputChange} ref={toRef} />
                 Instituição 3
-              </label><br></br>
+              </label>
             </div>
-            <div>
-              <label>Prêmio:</label>
+            <div className="Premios">
+              <h3>Prêmio:</h3>
               <label >
                 <input name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
                 Concorra a  100 R$ no Magazine Luiza
-              </label><br></br>
+              </label>
               <label>
                 <input name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
                 Concorra a  50 R$ na sua conta da Klever
-              </label><br></br>
+              </label>
               <label>
                 <input name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
                 Concorra a 12 meses grátis de Canal de Futebol
-              </label><br></br>
+              </label>
             </div>
-            <br />
-            <div>
-              <label>Valor:</label>
+            
+            <div className="valor">
+              <label><h3>Valor:</h3></label>
               <input required type="number" name="amount" ref={amountRef} />
             </div>
-            <br />
+            <hr />
+            <h2>Escolha um número: </h2>
             <div className="tableRifa">
               {numerosDisp.map((num, index) => (
                 <button
@@ -181,6 +180,7 @@ const App: React.FC = () => {
                 </button>))
               }
             </div>
+            <hr />
             <button className="btn-submit" type="submit">
               Submit
             </button>

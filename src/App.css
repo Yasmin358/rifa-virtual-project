@@ -6,12 +6,16 @@
 }
 
 .divNumbers {
-  border: 1px solid red;
+  border: 2px solid rgb(202, 40, 40);
   display: flex;
   flex-wrap: wrap;
-  height: 30px;
+  height: 50px;
   text-align: center;
-  width: 30px;
+  width: 50px;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+  background-color: indianred;
 }
 
 .redButton {
@@ -25,11 +29,13 @@
 }
 
 .tableRifa {
-  border: 1px solid white;
+  align-content: space-around;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  width: 160px;
+  width: 340px;
+  height: 300px;
 }
 
 .logo {
@@ -61,7 +67,56 @@
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: .5rem;
+  justify-content: center;
 }
+
+.container3, .container3 form, .container2  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.instituicao, .Premios {
+  display: flex;
+  flex-direction: column;
+}
+
+.instituicao h3, .Premios h3, .valor h3, .container h2, .container2 h2 {
+  margin: 5px 0;
+}
+
+.instituicao h3, .Premios h3, .valor h3 {
+  color: rgb(1, 155, 155);
+}
+
+.instituicao input, .Premios input {
+  margin-right: 5px;
+}
+
+.valor {
+  margin-bottom: 10px;
+}
+
+.valor input {
+  height: 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+hr {
+ height: 1px;
+ width: 500px;
+}
+
+.btn-submit {
+  background-color: #1a1a1a;
+}
+
+.btn-submit:hover {
+  border: 2px solid white;
+}
+
