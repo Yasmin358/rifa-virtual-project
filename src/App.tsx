@@ -87,7 +87,7 @@ const App: React.FC = () => {
 
 
   const onClickNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
-    event.target.classList.add('selected')
+    (event.target as Element).classList.add('selected')
     setAposta((index+1).toString());
   }
 
