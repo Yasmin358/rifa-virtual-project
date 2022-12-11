@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { numerosDisp } from './utils/data';
 import klever from './providers/klever';
-import { Link } from 'react-router-dom';
 
 import './App.css';
 import hospital from '../img/ha.png';
@@ -9,6 +8,7 @@ import falcoes from '../img/falcoes.png';
 import magalu from '../img/magalu.png';
 import premiere from '../img/premiere.png';
 import kleverLogo from '../img/klever.png';
+import vagalume from '../img/vagalume.png';
 
 const App: React.FC = () => {
   const [error, setError] = useState('');
@@ -87,8 +87,7 @@ const App: React.FC = () => {
 
 
   const onClickNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
-    console.log(event.target)
-    setChangeClass('select');
+    event.target.classList.add('selected')
     setAposta((index+1).toString());
   }
 
@@ -113,14 +112,14 @@ const App: React.FC = () => {
 
         <div className="container2">
 
-          <p className="text">
+          <div className="text">
             <h2>Conta:</h2>
             <b>{address}</b>
-          </p>
-          <p>
+          </div>
+          <div>
             <h2>Saldo:</h2> 
             KLV {balance}
-          </p>
+          </div>
         </div>
 
         <hr />
@@ -138,10 +137,8 @@ const App: React.FC = () => {
                 type="radio"
                 value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
                 onChange={onInputChange}
-                ref={toRef}
-                />
+                ref={toRef} /><a href="https://gerandofalcoes.com/" target="_blank">Hospital do Câncer</a>
                 <img src={falcoes} className='inputInstituicao'/>
-                <a href="https://gerandofalcoes.com/" target="_blank">Gerando Falcões</a>
               </label>
 
               <label>
@@ -150,9 +147,8 @@ const App: React.FC = () => {
                 type="radio"
                 value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
                 onChange={onInputChange}
-                ref={toRef} />
+                ref={toRef} /><a href="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</a>
                 <img src={hospital} className='inputInstituicao'/>
-                <a href="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</a>
               </label>
 
               <label>
@@ -161,8 +157,8 @@ const App: React.FC = () => {
                 type="radio"
                 value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn"
                 onChange={onInputChange}
-                ref={toRef} />
-                <a href="" target="_blank" className='inputInstituicao'>Instituição 3</a>
+                ref={toRef} /><a href="https://www.vagalume.org.br/" target="_blank">Associação VagaLume</a>
+                <img src={vagalume} className='inputInstituicao'/>
               </label>
             </div>
 
@@ -195,7 +191,7 @@ const App: React.FC = () => {
               {numerosDisp.map((num, index) => (
                 <button
                   key={index}
-                  className={`divNumbers ${changeClass}`}
+                  className='divNumbers'
                   onClick={(event) => onClickNumber(event, index)}>
                   {num}
                 </button>))
