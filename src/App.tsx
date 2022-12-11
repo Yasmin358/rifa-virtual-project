@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './App.css';
-// import ethereum from './providers/ethereum';
-import klever from './providers/klever';
 import { numerosDisp } from './utils/data';
-import Confirmation from './components/Confirmation';
+import klever from './providers/klever';
+import { Link } from 'react-router-dom';
+
+import './App.css';
+import hospital from '../img/ha.png';
 
 const App: React.FC = () => {
-  // const history = useHistory();
   const [error, setError] = useState('');
   const [kleverConnected, setKleverConnected] = useState(false);
-  /*   const [tronConnected, setTronConnected] = useState(false);
-    const [ethConnected, setEthConnected] = useState(false); */
   const [address, setAddress] = useState<string>();
   const [balance, setBalance] = useState<number>();
   const toRef = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -30,7 +28,6 @@ const App: React.FC = () => {
       }
 
       if (window.tronWeb.defaultAddress.base58) {
-        // setTronConnected(true);
         clearInterval(watcher);
       }
     }, 500);
@@ -57,15 +54,6 @@ const App: React.FC = () => {
     setAddress(klever.address);
     await fetchBalance();
   };
-
-  /* const connectToEth = async () => {
-    const address = await ethereum.connect();
-    if (!address.startsWith('0x')) {
-      setError(address);
-    }
-
-    setEthConnected(true);
-  }; */
 
   const connectedStyle = (provider: boolean) => {
     return { backgroundColor: provider ? 'green' : '#1a1a1a' };
@@ -95,19 +83,19 @@ const App: React.FC = () => {
 
 
   const onClickNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
-    console.log(event.target);
+    console.log(event.target)
     setChangeClass('select');
     setAposta((index+1).toString());
   }
-  
-  
 
   return (
-    <div>
+    <section>
+
       <h1>Ajude uma causa e concorra um prêmio!</h1>
+
       <div className="flex space-around">
         <div className="container">
-          <h2>Conecte sua Wallet para habilitar </h2>
+          <h2>Conecte sua Wallet para fazer a doação</h2>
           <div className="flex items-center space-around">
             <button
               style={connectedStyle(kleverConnected)}
@@ -115,15 +103,14 @@ const App: React.FC = () => {
             >
               KleverWeb
             </button>
-            {/* <button style={connectedStyle(tronConnected)}>TronWeb</button>
-            <button style={connectedStyle(ethConnected)} onClick={connectToEth}>
-              Web3
-            </button> */}
           </div>
+
           {error && <p onClick={() => setError('')}>{error}</p>}
+
         </div>
 
         <div className="container2">
+
           <p className="text">
             <h2>Conta:</h2>
             <b>{address}</b>
@@ -133,26 +120,54 @@ const App: React.FC = () => {
             KLV {balance}
           </p>
         </div>
+
         <hr />
+
         {balance &&
         <div className="container3">
+
           <h2>Doar e Concorrer:</h2>
+
           <form onSubmit={handleSubmit}>
             <div className="instituicao">
+
               <h3>Para:</h3>
-              <label >
-                <input required name="instituicao" type="radio" value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx" onChange={onInputChange} ref={toRef} />
-                Gerando Falcões
-              </label>
               <label>
-                <input required name="instituicao" type="radio" value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem" onChange={onInputChange} ref={toRef} />
-                Instituição 2
+                <input
+                required name="instituicao"
+                className='inputInstituicao'
+                type="radio"
+                value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
+                onChange={onInputChange}
+                ref={toRef}
+                src={hospital}
+                />
+                <Link to="https://gerandofalcoes.com/" target="_blank">Gerando Falcões</Link>
               </label>
+
               <label>
-                <input required name="instituicao" type="radio" value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn" onChange={onInputChange} ref={toRef} />
-                Instituição 3
+                <input
+                required name="instituicao"
+                className='inputInstituicao'
+                type="radio"
+                value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
+                onChange={onInputChange}
+                ref={toRef} />
+                <Link to="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</Link>
+              </label>
+
+              <label>
+                <input
+                required name="instituicao"
+                className='inputInstituicao'
+                type="radio"
+                value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn"
+                onChange={onInputChange}
+                ref={toRef} />
+                <Link to="" target="_blank">Instituição 3</Link>
               </label>
             </div>
+
             <div className="Premios">
               <h3>Prêmio:</h3>
               <label >
@@ -190,6 +205,7 @@ const App: React.FC = () => {
               Submit
             </button>
           </form>
+
           {txHash && (
             <div>
               <br />
@@ -200,9 +216,10 @@ const App: React.FC = () => {
               </p>
             </div>
           )}
+
         </div>}
       </div>
-    </div>
+    </section>
   );
 };
 

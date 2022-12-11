@@ -23,6 +23,11 @@
   color: white;
 }
 
+.inputInstituicao {
+  height: 150px;
+  width: 150px;
+}
+
 .greenButton {
   background: green;
   color: white;
