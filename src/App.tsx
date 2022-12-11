@@ -104,10 +104,10 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Ajude uma causa e concorra um prêmio!</h1>
+      <h1>Ajude uma causa e concorra a um prêmio!</h1>
       <div className="flex space-around">
         <div className="container">
-          <h2>Conecte sua Wallet para habilitar </h2>
+          <h2>Conecte sua carteira digital </h2>
           <div className="flex items-center space-around">
             <button
               style={connectedStyle(kleverConnected)}
@@ -136,10 +136,10 @@ const App: React.FC = () => {
         <hr />
         {balance &&
         <div className="container3">
-          <h2>Doar e Concorrer:</h2>
+          <h2>Doe e Concorra</h2>
           <form onSubmit={handleSubmit}>
             <div className="instituicao">
-              <h3>Para:</h3>
+              <h3>Escolha uma Instituição:</h3>
               <label >
                 <input required name="instituicao" type="radio" value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx" onChange={onInputChange} ref={toRef} />
                 Gerando Falcões
@@ -154,23 +154,23 @@ const App: React.FC = () => {
               </label>
             </div>
             <div className="Premios">
-              <h3>Prêmio:</h3>
+              <h3>Escolha qual dos prêmios você quer concorrer: </h3>
               <label >
                 <input required name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
-                Concorra a  100 R$ no Magazine Luiza
+                R$ 100,00 no Magazine Luiza
               </label>
               <label>
                 <input required name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
-                Concorra a  50 R$ na sua conta da Klever
+                R$ 50,00 na sua conta da Klever
               </label>
               <label>
                 <input required name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
-                Concorra a 12 meses grátis de Canal de Futebol
+                1 ano gratis de Canal de Futebol
               </label>
             </div>
             
             <div className="valor">
-              <label><h3>Valor:</h3></label>
+              <label><h3>Valor a ser doado:</h3></label>
               <input required type="number" name="amount" ref={amountRef} />
             </div>
             <hr />
