@@ -65,12 +65,12 @@ const App: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const amount = amountRef?.current?.value;
+    const amount = Number(amountRef?.current?.value) * 1000000;
     if (!aposta) {
       alert('Selecione um número para ser sorteado');
     }
     if (instituicao && amount) {
-      const data = await klever.send(instituicao, parseInt(amount));
+      const data = await klever.send(instituicao, amount);
       setTxHash(JSON.stringify(data));
     } 
   };
@@ -137,7 +137,7 @@ const App: React.FC = () => {
                 type="radio"
                 value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
                 onChange={onInputChange}
-                ref={toRef} /><a href="https://gerandofalcoes.com/" target="_blank">Hospital do Câncer</a>
+                ref={toRef} /><a href="https://gerandofalcoes.com/" target="_blank">Gerando Falcões </a>
                 <img src={falcoes} className='inputInstituicao'/>
               </label>
 
@@ -165,17 +165,17 @@ const App: React.FC = () => {
             <div className="Premios">
               <h3>Escolha qual dos prêmios você quer concorrer: </h3>
               <label >
-                <input required name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="R$ 100,00 no Magazine Luiza" onChange={onInputPremioChange} />
                 R$ 100,00 no Magazine Luiza
                 <img src={magalu} className='inputInstituicao'/>
               </label>
               <label>
-                <input required name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="R$ 50,00 na sua conta da Klever" onChange={onInputPremioChange} />
                 R$ 50,00 na sua conta da Klever
                 <img src={kleverLogo} className='inputInstituicao'/>
               </label>
               <label>
-                <input required name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
+                <input required name="premio" type="radio" value="1 ano gratis de Canal de Futebol" onChange={onInputPremioChange} />
                 1 ano gratis de Canal de Futebol
                 <img src={premiere} className='inputInstituicao'/>
               </label>
@@ -208,7 +208,7 @@ const App: React.FC = () => {
               <br />
               <p className="text">
               <h1>Transação concluída com sucesso</h1>
-              <p>Você está concorrendo a { premio } com o número { aposta }</p>
+              <p>{`Você está concorrendo a ${ premio } com o número ${ aposta }`}</p>
               <h2>Boa sorte!</h2>
               </p>
             </div>
