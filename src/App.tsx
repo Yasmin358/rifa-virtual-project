@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 import './App.css';
 import hospital from '../img/ha.png';
+import falcoes from '../img/falcoes.png';
+import magalu from '../img/magalu.png';
+import premiere from '../img/premiere.png';
+import kleverLogo from '../img/klever.png';
 
 const App: React.FC = () => {
   const [error, setError] = useState('');
@@ -131,13 +135,12 @@ const App: React.FC = () => {
               <label>
                 <input
                 required name="instituicao"
-                
                 type="radio"
                 value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
                 onChange={onInputChange}
                 ref={toRef}
                 />
-                <img src={hospital} className='inputInstituicao'/>
+                <img src={falcoes} className='inputInstituicao'/>
                 <a href="https://gerandofalcoes.com/" target="_blank">Gerando Falcões</a>
               </label>
 
@@ -148,7 +151,8 @@ const App: React.FC = () => {
                 value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
                 onChange={onInputChange}
                 ref={toRef} />
-                <Link to="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</Link>
+                <img src={hospital} className='inputInstituicao'/>
+                <a href="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</a>
               </label>
 
               <label>
@@ -158,7 +162,7 @@ const App: React.FC = () => {
                 value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn"
                 onChange={onInputChange}
                 ref={toRef} />
-                <Link to="" target="_blank">Instituição 3</Link>
+                <a href="" target="_blank" className='inputInstituicao'>Instituição 3</a>
               </label>
             </div>
 
@@ -167,14 +171,17 @@ const App: React.FC = () => {
               <label >
                 <input required name="premio" type="radio" value="premio1" onChange={onInputPremioChange} />
                 R$ 100,00 no Magazine Luiza
+                <img src={magalu} className='inputInstituicao'/>
               </label>
               <label>
                 <input required name="premio" type="radio" value="premio2" onChange={onInputPremioChange} />
                 R$ 50,00 na sua conta da Klever
+                <img src={kleverLogo} className='inputInstituicao'/>
               </label>
               <label>
                 <input required name="premio" type="radio" value="premio3" onChange={onInputPremioChange} />
                 1 ano gratis de Canal de Futebol
+                <img src={premiere} className='inputInstituicao'/>
               </label>
             </div>
             
