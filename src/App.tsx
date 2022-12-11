@@ -131,20 +131,19 @@ const App: React.FC = () => {
               <label>
                 <input
                 required name="instituicao"
-                className='inputInstituicao'
+                
                 type="radio"
                 value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
                 onChange={onInputChange}
                 ref={toRef}
-                src={hospital}
                 />
-                <Link to="https://gerandofalcoes.com/" target="_blank">Gerando Falcões</Link>
+                <img src={hospital} className='inputInstituicao'/>
+                <a href="https://gerandofalcoes.com/" target="_blank">Gerando Falcões</a>
               </label>
 
               <label>
                 <input
                 required name="instituicao"
-                className='inputInstituicao'
                 type="radio"
                 value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
                 onChange={onInputChange}
@@ -155,7 +154,6 @@ const App: React.FC = () => {
               <label>
                 <input
                 required name="instituicao"
-                className='inputInstituicao'
                 type="radio"
                 value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn"
                 onChange={onInputChange}
