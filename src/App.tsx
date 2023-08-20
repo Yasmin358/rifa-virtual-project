@@ -4,7 +4,7 @@ import klever from './providers/klever';
 
 import './App.css';
 import hospital from '../img/ha.png';
-import falcoes from '../img/falcoes.png';
+import falcoes from '../img/gf.jpg';
 import magalu from '../img/magalu.png';
 import premiere from '../img/premiere.png';
 import kleverLogo from '../img/klever.png';
@@ -92,10 +92,10 @@ const App: React.FC = () => {
   }
 
   return (
-    <section>
+    <main>
       <h1>Ajude uma causa e concorra a um prêmio!</h1>
-      <div className="flex space-around">
-        <div className="container">
+      <div className="body">
+        <div className="wallet-container">
           <h2>Conecte sua carteira digital </h2>
           <div className="flex items-center space-around">
             <button
@@ -128,75 +128,87 @@ const App: React.FC = () => {
         <div className="container3">
           <h2>Doe e Concorra</h2>
           <form onSubmit={handleSubmit}>
-            <div className="instituicao">
-
               <h3>Escolha uma instituição:</h3>
-              <label>
+              <section className="instituições-container">
+              <label className="ong-container">
+                <img src={falcoes} className='inputInstituicao'/>
+                <section className="input-container">
                 <input
                 required name="instituicao"
                 type="radio"
                 value="klv1ps54eeezs0gt6xdjd452uad022pdztrtlx2nmqq64r7q8j6nsass8540jx"
                 onChange={onInputChange}
                 ref={toRef} /><a href="https://gerandofalcoes.com/" target="_blank">Gerando Falcões </a>
-                <img src={falcoes} className='inputInstituicao'/>
+                </section>
               </label>
 
-              <label>
-                <input
-                required name="instituicao"
-                type="radio"
-                value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
-                onChange={onInputChange}
-                ref={toRef} /><a href="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</a>
+              <label className="ong-container">
                 <img src={hospital} className='inputInstituicao'/>
+                <section className="input-container">
+                  <input
+                  required name="instituicao"
+                  type="radio"
+                  value="klv1ad90sxgxtp9c7hupn67c90k0nw6kl76ff0qzfqt0ng300yv5pfms8frxem"
+                  onChange={onInputChange}
+                  ref={toRef} /><a href="https://hospitaldeamor.com.br/" target="_blank">Hospital do Câncer</a>
+                </section>
               </label>
 
-              <label>
+              <label className="ong-container">
+                <img src={vagalume} className='inputInstituicao'/>
+                <section className="input-container">
                 <input
                 required name="instituicao"
                 type="radio"
                 value="klv1efnz0q2fm5g8zrx0gyzu3y7va9xs5447mfqvy9xlt2qwmcpmduvqelj4kn"
                 onChange={onInputChange}
                 ref={toRef} /><a href="https://www.vagalume.org.br/" target="_blank">Associação VagaLume</a>
-                <img src={vagalume} className='inputInstituicao'/>
+                </section>
               </label>
-            </div>
-
-            <div className="Premios">
-              <h3>Escolha qual dos prêmios você quer concorrer: </h3>
-              <label >
-                <input required name="premio" type="radio" value="R$ 100,00 no Magazine Luiza" onChange={onInputPremioChange} />
-                R$ 100,00 no Magazine Luiza
+            </section>
+            <h3>Escolha qual dos prêmios você quer concorrer: </h3>
+            <section className="premios-container"> 
+              <label className="prem-container">
                 <img src={magalu} className='inputInstituicao'/>
+                <section className="input-container">
+                <input required name="premio" type="radio" value="R$ 100,00 no Magazine Luiza" onChange={onInputPremioChange} />
+                R$ 100,00 no Magazine Luiza 
+                </section>
               </label>
-              <label>
+              <label className="prem-container">
+                <img src={kleverLogo} className='inputInstituicao'/>
+                <section className="input-container">
                 <input required name="premio" type="radio" value="R$ 50,00 na sua conta da Klever" onChange={onInputPremioChange} />
                 R$ 50,00 na sua conta da Klever
-                <img src={kleverLogo} className='inputInstituicao'/>
+                </section>
               </label>
-              <label>
+              <label className="prem-container">
+                <img src={premiere} className='inputInstituicao'/>
+                <section className="input-container">
                 <input required name="premio" type="radio" value="1 ano gratis de Canal de Futebol" onChange={onInputPremioChange} />
                 1 ano gratis de Canal de Futebol
-                <img src={premiere} className='inputInstituicao'/>
+                </section>
               </label>
-            </div>
+            </section>
             
-            <div className="valor">
+            <section className="valor">
               <label><h3>Valor a ser doado:</h3></label>
               <input required type="number" name="amount" ref={amountRef} />
-            </div>
+            </section>
             <hr />
-            <h2>Escolha um número: </h2>
-            <div className="tableRifa">
-              {numerosDisp.map((num, index) => (
-                <button
-                  key={index}
-                  className='divNumbers'
-                  onClick={(event) => onClickNumber(event, index)}>
-                  {num}
-                </button>))
-              }
-            </div>
+            <section className="rifa-container">
+              <h2>Escolha um número: </h2>
+              <div className="tableRifa">
+                {numerosDisp.map((num, index) => (
+                  <button
+                    key={index}
+                    className='divNumbers'
+                    onClick={(event) => onClickNumber(event, index)}>
+                    {num}
+                  </button>))
+                }
+              </div>
+            </section>
             <hr />
             <button className="btn-submit" type="submit">
               Submit
@@ -216,7 +228,7 @@ const App: React.FC = () => {
 
         </div>}
       </div>
-    </section>
+    </main>
   );
 };
 
