@@ -124,7 +124,7 @@ const App: React.FC = () => {
 
         <hr />
 
-        {balance &&
+        {
         <div className="container3">
           <h2>Doe e Concorra</h2>
           <form onSubmit={handleSubmit}>
