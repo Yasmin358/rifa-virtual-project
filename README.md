@@ -7,7 +7,7 @@
   <img alt="Static Badge" src="https://img.shields.io/static/v1?label=STATUS&message=PROTOTIPO&color=blue&style=for-the-badge">
 
 </p>
-
+   
 <p align="center">
   <a href="#hackaton">Hackaton</a>
   <a href="#funcionalidades">Funcionalidades</a> •
@@ -33,7 +33,8 @@
  O Valor arrecadado com a rifa irá para ONG escolhida pela pessoa ganhadora, e a pessoa ganha o premio que ela já tinha escolhido.
 
 <h3 id="demostração"> 🔭 Demostração </h3>
-     <img src="./img/screen-recording-_1_.gif" alt="RifaVirtual Demo" >   
+       [screen-recording (1).webm](https://github.com/Yasmin358/rifa-virtual-project/assets/65173328/4ae22d40-1661-4005-8fc2-25e0860a3ec1)
+
 
 <h3 id="tecnologias-habilidades"> 💻 Tecnologias e Habilidades usadas no Projeto </h3>
   <ul>
