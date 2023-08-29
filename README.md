@@ -7,7 +7,7 @@
   <img alt="Static Badge" src="https://img.shields.io/static/v1?label=STATUS&message=PROTOTIPO&color=blue&style=for-the-badge">
 
 </p>
-
+   
 <p align="center">
   <a href="#hackaton">Hackaton</a>
   <a href="#funcionalidades">Funcionalidades</a> •
@@ -34,6 +34,7 @@
 
 <h3 id="demostração"> 🔭 Demostração </h3>
      <video src="./img/screen-recording (1).webm" alt="RifaVirtual Demo" ></video>   
+
 
 <h3 id="tecnologias-habilidades"> 💻 Tecnologias e Habilidades usadas no Projeto </h3>
   <ul>
