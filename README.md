@@ -33,7 +33,7 @@
  O Valor arrecadado com a rifa irá para ONG escolhida pela pessoa ganhadora, e a pessoa ganha o premio que ela já tinha escolhido.
 
 <h3 id="demostração"> 🔭 Demostração </h3>
-     <video src="./img/screen-recording (1).webm" alt="RifaVirtual Demo" ></video>   
+     <img src="./img/screen-recording(1).gif" alt="RifaVirtual Demo" >  
 
 
 <h3 id="tecnologias-habilidades"> 💻 Tecnologias e Habilidades usadas no Projeto </h3>
