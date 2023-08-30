@@ -60,7 +60,7 @@
       $ git@github.com:Yasmin358/rifa-virtual-project.git
       
       # Acesse a pasta do projeto no terminal/cmd
-      $ cd rifa-virtual-project.git
+      $ cd rifa-virtual-project
 
       # Instale as dependencias (node 18.x)
       $ npm install
